@@ -48,12 +48,12 @@ def parse_args(args):
         dest="cash",
         help="the dollar amount you want to spend on the motif",
         type=float,
-        metavar="FLOAT")
+        metavar="CASH")
     parser.add_argument(
         dest="spreadsheet",
         help="path to the motif spreasheet to parse",
         type=str,
-        metavar="STR")
+        metavar="SHEET")
     parser.add_argument(
         '-v',
         '--verbose',
