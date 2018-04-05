@@ -16,7 +16,7 @@ def test_run(capsys):
   """
   checks each line of output aganist a regular expression
   """
-  run(200000, 'testsheet.xlsx')
+  run(200000, './tests/testsheet.xlsx')
   out, err = capsys.readouterr()
   for line in out.splitlines():
     a = re.match("\.*Paper\.*",line)
