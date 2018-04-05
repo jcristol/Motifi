@@ -21,6 +21,7 @@ import sys
 import logging
 
 from motifi import __version__
+import motifi.motifi as motif
 
 __author__ = "jcristol"
 __copyright__ = "jcristol"
@@ -107,7 +108,8 @@ def main(args):
     args = parse_args(args)
     setup_logging(args.loglevel)
     _logger.debug("Starting crazy calculations...")
-    print("Performed crazy calculations")
+    cash, spreadsheet = args.cash, args.spreadsheet
+    motif.run(cash, spreadsheet)
     _logger.info("Script ends here")
 
 
