@@ -15,3 +15,4 @@ class Motifi():
   def paperTrade(self: Motifi, cash: float, targets: list) -> list:
     # get information from the api 
     # return the information
+    pass
