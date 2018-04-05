@@ -2,16 +2,18 @@ import motifi.spreadsheet as sheets
 from motifi.api import RobinhoodFetcher
 from rhwrapper.Robinhood import Robinhood
 
-def run(cash: float, spreadsheet: str):
-  targets: list = sheets.read_excel(spreadsheet)
-  m = Motifi()
-  print("Paper Trading the motif {}".format(spreadsheet))
-  purchases, gross_purchases = m.paperTrade(cash, targets)
-  purchases: list
-  gross_purchases: float
-  for p in purchases:
-    print("Paper Trade {} shares of {} : {} at $ {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
-  print("Grand Total $ {}".format(gross_purchases))
+def run(cash: float, spreadsheets: list):
+  for spreadsheet in spreadsheets:
+    divided_cash = cash / len(spreadsheets)
+    targets: list = sheets.read_excel(spreadsheet)
+    m = Motifi()
+    print("Paper Trading the motif {}".format(spreadsheet))
+    purchases, gross_purchases = m.paperTrade(divided_cash, targets)
+    purchases: list
+    gross_purchases: float
+    for p in purchases:
+      print("Paper Trade {} shares of {} : {} at $ {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
+    print("Grand Total $ {}".format(gross_purchases))
 
 class Motifi():
 
