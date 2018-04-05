@@ -22,6 +22,7 @@ def setup_package():
     needs_sphinx = {'build_sphinx', 'upload_docs'}.intersection(sys.argv)
     sphinx = ['sphinx'] if needs_sphinx else []
     setup(setup_requires=['pyscaffold>=3.0a0,<3.1a0'] + sphinx,
+          install_requires=['rhwrapper', 'pandas', 'requests', 'xlrd'],
           entry_points=entry_points,
           use_pyscaffold=True)
 
