@@ -5,6 +5,10 @@ from rhwrapper.Robinhood import Robinhood
 def run(cash: float, spreadsheet: str):
   targets: list = sheets.read_excel(spreadsheet)
   m = Motifi()
+  print("Paper Trading the motif {}".format(spreadsheet))
+  purchases = m.paperTrade(cash, targets)
+  for p in purchases:
+    print("Purchased {} shares of {} : {} at {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
 
 class Motifi():
 
@@ -13,7 +17,19 @@ class Motifi():
 
   def paperTrade(self, cash: float, targets: list) -> list:
     """
-    gets the instrument data for all the targets
+    returns list of purchase dictionaries
     """
+    def purchase(instrument: dict):
+      bid_price, symbol, name, weight = instrument['bid_price'], instrument['symbol'], instrument['name'], instrument['weight']
+      cash_avaliable = weight * cash
+      buys = cash_avaliable // bid_price
+      buys = max(0, buys)
+      return {
+        'symbol' : symbol,
+        'quantity' : buys,
+        'name' : name,
+        'bid_price' : bid_price
+      }
     api = RobinhoodFetcher(self.rb)
-    return api.getInstruments(targets)
+    instruments = api.getInstruments(targets)
+    return [ purchase(i) for i in instruments ]
