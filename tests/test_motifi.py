@@ -23,7 +23,7 @@ def test_run(capsys):
     b = re.match("\.*Grand\.*",line)
     assert a or b 
 
-def test_motifi():
+def test_paper_trading():
   m = Motifi()
   purchases = m.paperTrade(20000, targets)
   for p in purchases:
