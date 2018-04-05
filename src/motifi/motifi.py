@@ -8,7 +8,10 @@ def run(cash: float, spreadsheet: str):
   print("Paper Trading the motif {}".format(spreadsheet))
   purchases = m.paperTrade(cash, targets)
   for p in purchases:
-    print("Paper Trade {} shares of {} : {} at {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
+    print("Paper Trade {} shares of {} : {} at $ {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
+  gross_purchases: float = sum(map(lambda p: p['quantity'] * p['bid_price'], purchases))
+  gross_purchases = round(gross_purchases, 2)
+  print("Grand Total $ {}".format(gross_purchases))
 
 class Motifi():
 
