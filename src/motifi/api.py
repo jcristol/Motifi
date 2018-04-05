@@ -14,6 +14,7 @@ class RobinhoodFetcher():
       item = todo.get()
       result = self.rb.quote_data(item['symbol'])
       result['weight'] = item['weight']
+      result['name'] = item['name']
       results.append(result)
       todo.task_done()
 
