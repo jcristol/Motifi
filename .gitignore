@@ -9,6 +9,7 @@
 *.pot
 __pycache__/*
 .cache/*
+.pytest_cache/
 .*.swp
 */.ipynb_checkpoints/*
 
