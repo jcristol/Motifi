@@ -13,6 +13,7 @@ class RobinhoodFetcher():
     def getInstrument() -> dict:
       item = todo.get()
       result = self.rb.quote_data(item['symbol'])
+      result['weight'] = item['weight']
       results.append(result)
       todo.task_done()
 
