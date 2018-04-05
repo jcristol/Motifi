@@ -9,21 +9,19 @@
 """
 
 import sys
-from setuptools import setup
-
-# Add here console scripts and other entry points in ini-style format
-entry_points = """
-[console_scripts]
-motifi = motifi.script:run
-"""
-
+from setuptools import setup, find_packages
 
 def setup_package():
     needs_sphinx = {'build_sphinx', 'upload_docs'}.intersection(sys.argv)
     sphinx = ['sphinx'] if needs_sphinx else []
     setup(setup_requires=['pyscaffold>=3.0a0,<3.1a0'] + sphinx,
+          packages=find_packages(),
           install_requires=['rhwrapper', 'pandas', 'requests', 'xlrd'],
-          entry_points=entry_points,
+          entry_points = {
+                'console_scripts': [
+                    'motifi=motifi.script:run',
+                ],
+            },
           use_pyscaffold=True)
 
 
