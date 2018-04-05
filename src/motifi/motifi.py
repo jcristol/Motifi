@@ -8,7 +8,7 @@ def run(cash: float, spreadsheet: str):
   print("Paper Trading the motif {}".format(spreadsheet))
   purchases = m.paperTrade(cash, targets)
   for p in purchases:
-    print("Purchased {} shares of {} : {} at {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
+    print("Paper Trade {} shares of {} : {} at {}".format(p['quantity'], p['name'], p['symbol'], p['bid_price']))
 
 class Motifi():
 
@@ -20,7 +20,7 @@ class Motifi():
     returns list of purchase dictionaries
     """
     def purchase(instrument: dict):
-      bid_price, symbol, name, weight = instrument['bid_price'], instrument['symbol'], instrument['name'], instrument['weight']
+      bid_price, symbol, name, weight = float(instrument['bid_price']), instrument['symbol'], instrument['name'], float(instrument['weight'])
       cash_avaliable = weight * cash
       buys = cash_avaliable // bid_price
       buys = max(0, buys)
