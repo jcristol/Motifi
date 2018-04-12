@@ -4,6 +4,8 @@
 - install `pip install -f wheels .`
 - run `motifi`
 
+- develop `python setup.py develop -f wheels`
+
 
 ## Description
 

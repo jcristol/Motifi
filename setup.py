@@ -136,7 +136,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['Robinhood', 'pandas', 'requests', 'xlrd'],
+    install_requires=['Robinhood', 'pandas', 'requests', 'xlrd', 'numpy', 'python-dateutil', 'pytz'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
@@ -148,6 +148,7 @@ setup(
     # projects.
     extras_require={  # Optional
         'test': ['pytest'],
+        'develop' : ['pylint', 'pytest'],
     },
 
     # If there are data files included in your packages that need to be
