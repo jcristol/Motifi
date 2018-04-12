@@ -1,7 +1,7 @@
 ## motifi
 
 
-- install `pip install .`
+- install `pip install -f wheels .`
 - run `motifi`
 
 
