@@ -45,11 +45,13 @@ def parse_args(args):
         action='version',
         version='motifi {ver}'.format(ver=__version__))
     parser.add_argument(
-        dest="--cash",
+        "--cash",
+        dest="cash",
         help="the dollar amount you want to spend on the motif",
         type=float)
     parser.add_argument(
-        dest="--spreadsheets",
+        "--spreadsheets",
+        dest="spreadsheets",
         nargs="+",
         help="path to the motif spreasheets to parse",
         type=str)
