@@ -1,6 +1,6 @@
 from threading import Thread
 from queue import Queue
-from rhwrapper.Robinhood import Robinhood
+from Robinhood import Robinhood
 
 class RobinhoodFetcher():
 

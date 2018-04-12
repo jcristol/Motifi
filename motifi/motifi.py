@@ -1,6 +1,6 @@
 import motifi.spreadsheet as sheets
 from motifi.api import RobinhoodFetcher
-from rhwrapper.Robinhood import Robinhood
+from Robinhood import Robinhood
 
 def run(cash: float, spreadsheets: list):
   for spreadsheet in spreadsheets:
