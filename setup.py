@@ -1,32 +1,4 @@
-# #!/usr/bin/env python
-# # -*- coding: utf-8 -*-
-# """
-#     Setup file for motifi.
-
-#     This file was generated with PyScaffold 3.0.2.
-#     PyScaffold helps you to put up the scaffold of your new Python project.
-#     Learn more under: http://pyscaffold.org/
-# """
-
-# import sys
-# from setuptools import setup, find_packages
-
-# def setup_package():
-#     needs_sphinx = {'build_sphinx', 'upload_docs'}.intersection(sys.argv)
-#     sphinx = ['sphinx'] if needs_sphinx else []
-#     setup(setup_requires=['pyscaffold>=3.0a0,<3.1a0'] + sphinx,
-#           packages=find_packages(),
-#           install_requires=['rhwrapper', 'pandas', 'requests', 'xlrd'],
-#           entry_points = {
-#                 'console_scripts': [
-#                     'motifi=motifi.script:run',
-#                 ],
-#             },
-#           use_pyscaffold=True)
-
-
-# if __name__ == "__main__":
-#     setup_package()
+#!/usr/bin/env python
 
 
 """A setuptools based setup module.
