@@ -3,7 +3,7 @@
 
 import pytest
 from motifi.api import RobinhoodFetcher
-from rhwrapper.Robinhood import Robinhood
+from Robinhood import Robinhood
 
 __author__ = "jcristol"
 __copyright__ = "jcristol"
