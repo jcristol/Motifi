@@ -29,7 +29,6 @@ class Trade():
 
 
 class PaperTrader(Trade):
-  
   def runTrader(self):
     cash_per_sheet = self.total_cash / len(self.spreadsheets)
     for sheet in self.spreadsheets:
