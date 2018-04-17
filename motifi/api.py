@@ -1,6 +1,7 @@
 from threading import Thread
 from queue import Queue
 from Robinhood import Robinhood
+from Robinhood import exceptions as RH_exception
 
 class RobinhoodFetcher():
 
@@ -12,11 +13,15 @@ class RobinhoodFetcher():
 
     def getInstrument() -> dict:
       item = todo.get()
-      result = self.rb.quote_data(item['symbol'])
-      result['weight'] = item['weight']
-      result['name'] = item['name']
-      results.append(result)
-      todo.task_done()
+      try:
+        result = self.rb.quote_data(item['symbol'])
+        result['weight'] = item['weight']
+        result['name'] = item['name']
+        results.append(result)
+      except:
+        print("Missing Ticker {}".format(item['symbol']))
+      finally:
+        todo.task_done()
 
     for item in targets:
       t = Thread(target=getInstrument)

@@ -22,7 +22,8 @@ def test_run(capsys):
   for line in out.splitlines():
     a = re.match("\.*Paper\.*",line)
     b = re.match("\.*Grand\.*",line)
-    assert a or b 
+    c = re.match("\.*Missing Ticker\.*",line)
+    assert a or b or c
 
 def test_paper_trading():
   m = Motifi()
