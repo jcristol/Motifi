@@ -8,25 +8,31 @@ class Trade():
     self.total_cash = total_cash
     self.spreadsheets = spreadsheets
     self.rb = Robinhood()
+    self.trade_type = None
     self.results = []
 
   def runTrader(self):
     raise NotImplementedError("runTrader not implemented for trader {}".format(self))
 
   def prePrint(self):
-    [print("Paper Trading the motif {}".format(spreadsheet)) for spreadsheet in self.spreadsheets]
+    [print("{} the motif {}".format(self.trade_type, spreadsheet)) for spreadsheet in self.spreadsheets]
     print("Spending {} dollars".format(self.total_cash))
 
   def postPrint(self):
     for res in self.results:
       trades, total_spent = res
       for t in trades:
-        print("Paper Trade {} shares of {} : {} at $ {}".format(t['quantity'], t['name'], t['symbol'], t['bid_price']))
+        print("{} {} shares of {} : {} at $ {}".format(self.trade_type, t['quantity'], t['name'], t['symbol'], t['bid_price']))
       print("Total spent on portfolio $ {}".format(total_spent))
       print()
 
 
 class PaperTrader(Trade):
+
+  def __init__(self, total_cash: float, spreadsheets: list):
+    super(self)
+    self.trade_type = "Paper Trading" 
+
   def runTrader(self):
     cash_per_sheet = self.total_cash / len(self.spreadsheets)
     for sheet in self.spreadsheets:
