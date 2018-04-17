@@ -2,15 +2,17 @@ import motifi.spreadsheet as sheets
 from motifi.api import RobinhoodFetcher
 from Robinhood import Robinhood
 
-def run(total_cash: float, spreadsheets: list):
-  m = Motifi()
+def run(total_cash: float, spreadsheets: list, trade_type=None):
+  rb = Robinhood()
+  cash_per_sheet = total_cash / len(spreadsheets)
   for spreadsheet in spreadsheets:
-    run_sheet(total_cash / len(spreadsheets), spreadsheet, m)
+    run_sheet(cash_per_sheet, spreadsheet, rb, trade_type)
 
-def run_sheet(cash: float, spreadsheet: str, motif):
-  targets: list
-  purchases: list
+def run_sheet(cash: float, spreadsheet: str, rb: Robinhood, trade_type=None):
   targets = sheets.read_excel(spreadsheet)
+  # call the pre print function of the trade_type
+  # call the run function of the trade_type
+  # call the post print function of the trade_type
   print("Paper Trading the motif {}".format(spreadsheet))
   purchases, gross_total = motif.paperTrade(cash, targets)
   for p in purchases:
