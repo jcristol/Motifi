@@ -18,9 +18,6 @@ class Trade():
     print("Spending {} dollars".format(self.total_cash))
 
   def postPrint(self):
-    """
-    must call after running the trader
-    """
     for res in self.results:
       trades, total_spent = res
       for t in trades:
