@@ -23,6 +23,7 @@ class Trade():
       for t in trades:
         print("Paper Trade {} shares of {} : {} at $ {}".format(t['quantity'], t['name'], t['symbol'], t['bid_price']))
       print("Total spent on portfolio $ {}".format(total_spent))
+      print()
 
 
 class PaperTrader(Trade):
